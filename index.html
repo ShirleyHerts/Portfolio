@@ -47,6 +47,55 @@
     margin-bottom: 32px;
   }
 
+    .intro {
+  background: white;
+  border-radius: 24px;
+  padding: 36px;
+  box-shadow: 0 20px 50px rgba(36, 22, 49, 0.08);
+  margin-bottom: 32px;
+}
+
+.highlight {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3A2153;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 20px;
+  background: #3A2153;
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: bold;
+}
+
+.card a:hover {
+  background: #FF8300;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  header h1 {
+    font-size: 34px;
+  }
+
+  header p {
+    font-size: 18px;
+  }
+}
+
   h2 {
     color: #3A2153;
     font-size: 28px;
