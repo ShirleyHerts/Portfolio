@@ -4,171 +4,367 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Vleugelslag | Groeiverhaal</title>
+  <title>Vleugelslag | Growth Story</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --purple: #3A2153;
+      --orange: #FF8300;
+      --cream: #F7F4EF;
+      --dark: #07111f;
+      --dark2: #0b1628;
+      --text: #f8f2e9;
+      --muted: rgba(248, 242, 233, 0.72);
+      --line: rgba(255, 255, 255, 0.12);
+      --card: rgba(255, 255, 255, 0.06);
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f4ef;
-      color: #241631;
-      line-height: 1.6;
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(255, 131, 0, 0.32), transparent 26%),
+        radial-gradient(circle at 10% 10%, rgba(58, 33, 83, 0.9), transparent 32%),
+        linear-gradient(180deg, #101827 0%, #07111f 38%, #050b14 100%);
+      color: var(--text);
+      line-height: 1.7;
     }
 
-    header {
-      background: linear-gradient(135deg, #3A2153, #FF8300);
-      color: white;
-      text-align: center;
-      padding: 80px 24px;
+    a {
+      color: inherit;
     }
 
-    header h1 {
-      font-size: 48px;
-      margin: 0 0 20px;
-    }
-
-    header p {
-      font-size: 20px;
-      max-width: 760px;
+    .page {
+      width: min(1220px, calc(100% - 40px));
       margin: 0 auto;
     }
 
-    main {
-      max-width: 1100px;
-      margin: 60px auto;
-      padding: 0 24px;
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 34px 0 10px;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
-    .intro {
-      background: white;
-      border-radius: 28px;
-      padding: 42px;
-      box-shadow: 0 20px 50px rgba(36, 22, 49, 0.08);
-      margin-bottom: 40px;
+    .back-top {
+      text-decoration: none;
+      border: 1px solid var(--line);
+      padding: 10px 16px;
+      border-radius: 999px;
+      transition: 0.25s ease;
     }
 
-    .intro blockquote {
-      font-size: 34px;
-      line-height: 1.2;
-      font-weight: bold;
-      color: #3A2153;
+    .back-top:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
+    }
+
+    .hero {
+      position: relative;
+      padding: 70px 0 86px;
+      overflow: hidden;
+    }
+
+    .eyebrow {
+      color: var(--orange);
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(76px, 11vw, 150px);
+      line-height: 0.88;
+      margin: 0;
+      letter-spacing: -0.06em;
+      max-width: 900px;
+    }
+
+    .hero-subtitle {
+      margin-top: 22px;
+      color: #F2CF8D;
+      font-size: clamp(18px, 2vw, 28px);
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .hero p {
+      max-width: 660px;
+      color: var(--muted);
+      font-size: 21px;
+      margin-top: 28px;
+    }
+
+    .wave-art {
+      position: absolute;
+      right: -120px;
+      bottom: 40px;
+      width: 650px;
+      height: 240px;
+      opacity: 0.45;
+      background:
+        repeating-radial-gradient(ellipse at center, rgba(255, 131, 0, 0.5) 0 2px, transparent 3px 13px);
+      transform: rotate(-8deg);
+      filter: blur(0.4px);
+      pointer-events: none;
+    }
+
+    .story-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 34px;
+      padding: 54px 0 46px;
+      border-top: 1px solid var(--line);
+    }
+
+    .case-card {
+      min-width: 0;
+    }
+
+    .case-head {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .case-number {
+      font-family: "Playfair Display", serif;
+      font-size: 52px;
+      line-height: 1;
+      color: var(--orange);
+      opacity: 0.95;
+    }
+
+    .case-line {
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, rgba(255, 131, 0, 0.7), transparent);
+    }
+
+    .case-label {
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .case-card h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 38px;
+      line-height: 1;
+      margin: 0 0 18px;
+      letter-spacing: -0.04em;
+    }
+
+    .case-card p {
+      color: var(--muted);
+      font-size: 16px;
       margin: 0 0 24px;
     }
 
-    .version-card {
+    .video-frame {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 10px;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .video-frame video {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+      border-radius: 18px;
+      background: #111827;
+    }
+
+    .focus {
+      margin-top: 10px;
+      color: #F2CF8D;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      font-weight: 800;
+    }
+
+    .learning {
+      color: var(--muted);
+      font-size: 15px;
+      margin-top: 8px;
+    }
+
+    .quote-section {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 36px;
+      gap: 44px;
       align-items: center;
-      background: white;
+      margin: 42px 0 54px;
       border-radius: 28px;
-      padding: 34px;
-      box-shadow: 0 20px 50px rgba(36, 22, 49, 0.08);
-      margin-bottom: 34px;
-      border-top: 8px solid #FF8300;
+      padding: 48px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(255, 131, 0, 0.35), transparent 35%),
+        linear-gradient(135deg, rgba(58, 33, 83, 0.85), rgba(255, 131, 0, 0.35));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: var(--shadow);
     }
 
-    .version-card img {
-      width: 100%;
-      border-radius: 22px;
-      display: block;
-    }
-
-    .label {
-      display: inline-block;
-      color: #FF8300;
-      font-size: 13px;
-      font-weight: bold;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    h2 {
-      color: #3A2153;
-      font-size: 34px;
+    .big-quote {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(34px, 4vw, 54px);
       line-height: 1.1;
-      margin: 0 0 18px;
+      margin: 0;
     }
 
-    h3 {
-      color: #3A2153;
-      margin-bottom: 6px;
+    .quote-mark {
+      font-size: 90px;
+      line-height: 0.6;
+      color: rgba(255, 255, 255, 0.28);
+      display: block;
+      margin-bottom: 10px;
     }
 
-    p {
+    .insights h3 {
+      margin-top: 0;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 13px;
+    }
+
+    .insight {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 16px;
+      margin: 18px 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #F2CF8D;
       font-size: 18px;
-      margin-bottom: 18px;
+    }
+
+    .skills-section {
+      padding-bottom: 70px;
+    }
+
+    .skills-title {
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-size: 14px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 22px;
     }
 
     .skills {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
+      gap: 12px;
     }
 
     .skills span {
-      background: #f2edf6;
-      color: #3A2153;
-      padding: 8px 12px;
+      border: 1px solid var(--line);
+      padding: 10px 15px;
       border-radius: 999px;
+      color: var(--muted);
       font-size: 14px;
-      font-weight: bold;
-    }
-
-    .summary {
-      background: #3A2153;
-      color: white;
-      border-radius: 28px;
-      padding: 42px;
-      margin-top: 44px;
-    }
-
-    .summary h2 {
-      color: white;
-    }
-
-    .summary p {
-      color: #f7f4ef;
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-top: 34px;
-      background: #3A2153;
-      color: white;
-      text-decoration: none;
-      padding: 13px 22px;
-      border-radius: 999px;
-      font-weight: bold;
-    }
-
-    .back-link:hover {
-      background: #FF8300;
+      background: rgba(255,255,255,.03);
     }
 
     footer {
+      border-top: 1px solid var(--line);
+      padding: 32px 0 44px;
       text-align: center;
-      padding: 40px 20px;
-      color: #6f6478;
+      color: rgba(248, 242, 233, 0.45);
+      font-size: 12px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
     }
 
-    @media (max-width: 850px) {
-      .version-card {
+    @media (max-width: 980px) {
+      .story-row {
         grid-template-columns: 1fr;
       }
 
-      header h1 {
-        font-size: 36px;
+      .quote-section {
+        grid-template-columns: 1fr;
       }
 
-      .intro blockquote {
-        font-size: 26px;
+      .hero {
+        padding-top: 44px;
       }
 
-      h2 {
-        font-size: 28px;
+      .wave-art {
+        display: none;
+      }
+
+      .case-card h2 {
+        font-size: 42px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: min(100% - 24px, 1220px);
+      }
+
+      .topbar {
+        align-items: flex-start;
+        gap: 16px;
+        flex-direction: column;
+      }
+
+      h1 {
+        font-size: 70px;
+      }
+
+      .hero-subtitle {
+        letter-spacing: 0.22em;
+        font-size: 16px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .quote-section {
+        padding: 30px;
+      }
+
+      .big-quote {
+        font-size: 34px;
       }
     }
   </style>
@@ -176,220 +372,157 @@
 
 <body>
 
-  <header>
+  <div class="page">
+
+    <nav class="topbar">
+      <div>Growth Story</div>
+      <a class="back-top" href="index.html">← Terug naar portfolio</a>
+    </nav>
 
-<h1>Vleugelslag</h1>
+    <header class="hero">
+      <div class="eyebrow">Vleugelslag</div>
+
+      <h1>Van verhaal naar instrument</h1>
 
-<p>
-Van verhaal naar instrument.
-Een kijkje in hoe één idee zich ontwikkelde door meerdere iteraties.
-</p>
+      <div class="hero-subtitle">Audio · UX · Interactie</div>
 
-</header>
+      <p>
+        Een iteratieve reis waarin een creatief audioverhaal groeide naar een interactieve mixerervaring.
+        Niet door één grote sprong, maar door telkens opnieuw te kijken: wat wil de gebruiker beleven, begrijpen en zelf kunnen doen?
+      </p>
 
-<main>
+      <div class="wave-art"></div>
+    </header>
+
+    <section class="story-row">
 
-<section class="hero-quote">
-
-<blockquote>
-
-"Sommige ideeën beginnen als een ervaring.
-Andere groeien uit tot een systeem waarmee je zelf kunt spelen."
-
-</blockquote>
-
-<p>
-
-Vleugelslag begon als een audioverhaal.
-Door te experimenteren met UX, structuur, interactie en AI ontstonden nieuwe inzichten.
-Deze pagina laat zien hoe het concept zich stap voor stap ontwikkelde.
-
-</p>
-
-</section>
-
-<div class="timeline">
-
-<div class="timeline-item">🎧 De Reis</div>
-
-<div class="timeline-item">🧩 De Lagen</div>
-
-<div class="timeline-item">🎛 Het Instrument</div>
-
-</div>
-
-<section class="version">
-
-<img src="images/vleugelslag-v1.png" alt="Vleugelslag V1">
-
-<div>
-
-<div class="label">V1 · De Reis</div>
-
-<h2>Van muziek naar verhaal</h2>
-
-<p class="question">Vraag</p>
-
-<p>
-
-Hoe maak je van een nummer een verhaal?
-
-</p>
-
-<p class="question">Wat veranderde er?</p>
-
-<p>
-
-De audio werd opgebouwd als een reis met verschillende fasen.
-De gebruiker volgt het verhaal stap voor stap.
-
-</p>
-
-<p class="question">Wat ik leerde</p>
-
-<p>
-
-Storytelling helpt om losse onderdelen betekenis en richting te geven.
-
-</p>
-
-<div class="skills">
-
-<span>Storytelling</span>
-<span>Audio UX</span>
-<span>Conceptontwikkeling</span>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="version">
-
-<img src="images/vleugelslag-v2.png" alt="Vleugelslag V2">
-
-<div>
-
-<div class="label">V2 · De Lagen</div>
-
-<h2>Van verhaal naar structuur</h2>
-
-<p class="question">Vraag</p>
-
-<p>
-
-Waaruit bestaat die reis eigenlijk?
-
-</p>
-
-<p class="question">Wat veranderde er?</p>
-
-<p>
-
-De ervaring werd opgesplitst in lagen, bouwstenen en onderdelen.
-Daardoor werd zichtbaar hoe het geheel is opgebouwd.
-
-</p>
-
-<p class="question">Wat ik leerde</p>
-
-<p>
-
-Complexiteit wordt begrijpelijker wanneer je deze structureert.
-
-</p>
-
-<div class="skills">
-
-<span>Systems Thinking</span>
-<span>Information Architecture</span>
-<span>Structureren</span>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="version">
-
-<img src="images/vleugelslag-v3.png" alt="Vleugelslag V3">
-
-<div>
-
-<div class="label">V3 · Het Instrument</div>
-
-<h2>Van structuur naar interactie</h2>
-
-<p class="question">Vraag</p>
-
-<p>
-
-Wat gebeurt er wanneer de gebruiker zelf de controle krijgt?
-
-</p>
-
-<p class="question">Wat veranderde er?</p>
-
-<p>
-
-De gebruiker kan zelf mixen, solo zetten, muten, faden en experimenteren.
-
-</p>
-
-<p class="question">Wat ik leerde</p>
-
-<p>
-
-Interactie verandert een ervaring van passief naar actief.
-
-</p>
-
-<div class="skills">
-
-<span>Interaction Design</span>
-<span>Product Design</span>
-<span>Rapid Prototyping</span>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="summary">
-
-<h2>Wat dit groeiproces laat zien</h2>
-
-<p>
-
-Vleugelslag groeide van een verhaal naar een systeem waarmee je kunt experimenteren.
-
-</p>
-
-<p>
-
-Het project laat zien hoe storytelling, UX, systeemdenken, interactieontwerp en AI elkaar kunnen versterken tijdens een iteratief ontwerpproces.
-
-</p>
-
-</section>
-
-<a href="index.html" class="back">
-
-← Terug naar portfolio
-
-</a>
-
-</main>
-
-</body>
-</html>
-
-  <footer>
-    © Portfolio — creatieve exploratie rond AI, UX, audio en conceptontwikkeling.
-  </footer>
+      <article class="case-card">
+        <div class="case-head">
+          <div class="case-number">01</div>
+          <div class="case-line"></div>
+        </div>
+
+        <div class="case-label">De reis</div>
+        <h2>Van muziek naar verhaal</h2>
+
+        <p>
+          De eerste versie maakte van audio een route. De gebruiker luistert, volgt fases en ervaart de compositie als een verhaal.
+        </p>
+
+        <div class="video-frame">
+          <video autoplay muted loop playsinline>
+            <source src="videos/vleugelslag-v1.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="focus">Focus</div>
+        <div class="learning">Storytelling & Audio UX</div>
+
+        <div class="focus">Wat ik leerde</div>
+        <div class="learning">Een verhaal krijgt kracht door structuur en een duidelijke route.</div>
+      </article>
+
+      <article class="case-card">
+        <div class="case-head">
+          <div class="case-number">02</div>
+          <div class="case-line"></div>
+        </div>
+
+        <div class="case-label">De lagen</div>
+        <h2>Van verhaal naar structuur</h2>
+
+        <p>
+          De tweede versie haalde het verhaal uit elkaar in lagen, bouwstenen en varianten. Daardoor werd de complexiteit zichtbaar en werkbaar.
+        </p>
+
+        <div class="video-frame">
+          <video autoplay muted loop playsinline>
+            <source src="videos/vleugelslag-v2.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="focus">Focus</div>
+        <div class="learning">Systems Thinking & Information Design</div>
+
+        <div class="focus">Wat ik leerde</div>
+        <div class="learning">Complexiteit wordt overzichtelijk als je de juiste structuur vindt.</div>
+      </article>
+
+      <article class="case-card">
+        <div class="case-head">
+          <div class="case-number">03</div>
+          <div class="case-line"></div>
+        </div>
+
+        <div class="case-label">Het instrument</div>
+        <h2>Van structuur naar interactie</h2>
+
+        <p>
+          De derde versie gaf de gebruiker controle. Mixen, muten, solo en crossfade maken van de ervaring een instrument.
+        </p>
+
+        <div class="video-frame">
+          <video autoplay muted loop playsinline>
+            <source src="videos/vleugelslag-v3.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="focus">Focus</div>
+        <div class="learning">Interaction & Product Design</div>
+
+        <div class="focus">Wat ik leerde</div>
+        <div class="learning">Interactie verandert de rol van de gebruiker: van luisteraar naar maker.</div>
+      </article>
+
+    </section>
+
+    <section class="quote-section">
+      <blockquote class="big-quote">
+        <span class="quote-mark">“</span>
+        Niet elk project begint met een plan. Soms begint het met nieuwsgierigheid, gevolgd door tientallen kleine verbeteringen.
+      </blockquote>
+
+      <div class="insights">
+        <h3>Wat dit groeiproces laat zien</h3>
+
+        <div class="insight">
+          <div class="icon">◎</div>
+          <div>Een idee kan groeien door te experimenteren en te itereren.</div>
+        </div>
+
+        <div class="insight">
+          <div class="icon">✦</div>
+          <div>Storytelling, structuur en interactie versterken elkaar.</div>
+        </div>
+
+        <div class="insight">
+          <div class="icon">↗</div>
+          <div>AI en snelle prototyping helpen om grenzen te verleggen en nieuwe mogelijkheden te ontdekken.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills-section">
+      <div class="skills-title">Vaardigheden ontwikkeld</div>
+
+      <div class="skills">
+        <span>UX Design</span>
+        <span>Audio Experience</span>
+        <span>Storytelling</span>
+        <span>Information Architecture</span>
+        <span>Interaction Design</span>
+        <span>Systems Thinking</span>
+        <span>Rapid Prototyping</span>
+        <span>AI & Generative Tools</span>
+      </div>
+    </section>
+
+    <footer>
+      Vleugelslag · Creatie · Innovatie · Experience
+      © Portfolio — creatieve exploratie rond AI, UX, audio en conceptontwikkeling.
+    </footer>
+
+  </div>
 
 </body>
 </html>
