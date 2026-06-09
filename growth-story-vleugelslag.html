@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Vleugelslag | Groeiverhaal</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f4ef;
+      color: #241631;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #3A2153, #FF8300);
+      color: white;
+      text-align: center;
+      padding: 80px 24px;
+    }
+
+    header h1 {
+      font-size: 48px;
+      margin: 0 0 20px;
+    }
+
+    header p {
+      font-size: 20px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 24px;
+    }
+
+    .intro {
+      background: white;
+      border-radius: 28px;
+      padding: 42px;
+      box-shadow: 0 20px 50px rgba(36, 22, 49, 0.08);
+      margin-bottom: 40px;
+    }
+
+    .intro blockquote {
+      font-size: 34px;
+      line-height: 1.2;
+      font-weight: bold;
+      color: #3A2153;
+      margin: 0 0 24px;
+    }
+
+    .version-card {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+      align-items: center;
+      background: white;
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: 0 20px 50px rgba(36, 22, 49, 0.08);
+      margin-bottom: 34px;
+      border-top: 8px solid #FF8300;
+    }
+
+    .version-card img {
+      width: 100%;
+      border-radius: 22px;
+      display: block;
+    }
+
+    .label {
+      display: inline-block;
+      color: #FF8300;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      color: #3A2153;
+      font-size: 34px;
+      line-height: 1.1;
+      margin: 0 0 18px;
+    }
+
+    h3 {
+      color: #3A2153;
+      margin-bottom: 6px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .skills span {
+      background: #f2edf6;
+      color: #3A2153;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .summary {
+      background: #3A2153;
+      color: white;
+      border-radius: 28px;
+      padding: 42px;
+      margin-top: 44px;
+    }
+
+    .summary h2 {
+      color: white;
+    }
+
+    .summary p {
+      color: #f7f4ef;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 34px;
+      background: #3A2153;
+      color: white;
+      text-decoration: none;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      background: #FF8300;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #6f6478;
+    }
+
+    @media (max-width: 850px) {
+      .version-card {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 36px;
+      }
+
+      .intro blockquote {
+        font-size: 26px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Vleugelslag</h1>
+    <p>Van audioverhaal naar interactief instrument.</p>
+  </header>
+
+  <main>
+
+    <section class="intro">
+      <blockquote>
+        “Sommige ideeën beginnen als een ervaring. Andere groeien uit tot een systeem waarmee je zelf kunt spelen.”
+      </blockquote>
+
+      <p>
+        Vleugelslag laat zien hoe een creatief idee stap voor stap groeide.
+        Eerst als audioverhaal, daarna als gelaagde mixervaring en uiteindelijk als interactieve mixer.
+      </p>
+    </section>
+
+    <section class="version-card">
+      <img src="images/vleugelslag-v1.png" alt="Vleugelslag versie 1">
+
+      <div>
+        <span class="label">V1 · De reis</span>
+        <h2>Van muziek naar verhaal</h2>
+
+        <h3>Vraag</h3>
+        <p>Hoe maak je van een nummer een verhaal?</p>
+
+        <h3>Wat veranderde er?</h3>
+        <p>
+          De audio werd opgebouwd als een reis met fasen.
+          De gebruiker luistert en volgt het verhaal stap voor stap.
+        </p>
+
+        <h3>Wat ik leerde</h3>
+        <p>
+          Storytelling helpt om losse audio om te zetten in een ervaring met richting.
+        </p>
+
+        <div class="skills">
+          <span>Storytelling</span>
+          <span>Audio UX</span>
+          <span>Conceptontwikkeling</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="version-card">
+      <img src="images/vleugelslag-v2.png" alt="Vleugelslag versie 2">
+
+      <div>
+        <span class="label">V2 · De lagen</span>
+        <h2>Van verhaal naar structuur</h2>
+
+        <h3>Vraag</h3>
+        <p>Waaruit bestaat die reis eigenlijk?</p>
+
+        <h3>Wat veranderde er?</h3>
+        <p>
+          De ervaring werd opgeknipt in lagen, varianten en bouwstenen.
+          Daardoor werd zichtbaar hoe de compositie is opgebouwd.
+        </p>
+
+        <h3>Wat ik leerde</h3>
+        <p>
+          Complexiteit wordt begrijpelijker als je die verdeelt in duidelijke onderdelen.
+        </p>
+
+        <div class="skills">
+          <span>Information Architecture</span>
+          <span>Systems Thinking</span>
+          <span>Structuur</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="version-card">
+      <img src="images/vleugelslag-v3.png" alt="Vleugelslag versie 3">
+
+      <div>
+        <span class="label">V3 · Het instrument</span>
+        <h2>Van structuur naar interactie</h2>
+
+        <h3>Vraag</h3>
+        <p>Wat als de gebruiker zelf de controle krijgt?</p>
+
+        <h3>Wat veranderde er?</h3>
+        <p>
+          De gebruiker kan nu zelf mixen, muten, solo zetten, faden en crossfaden.
+          De ervaring verandert van luisteren naar zelf sturen.
+        </p>
+
+        <h3>Wat ik leerde</h3>
+        <p>
+          Interactie maakt een concept actiever. De gebruiker wordt niet alleen toeschouwer, maar deelnemer.
+        </p>
+
+        <div class="skills">
+          <span>Interaction Design</span>
+          <span>Product Design</span>
+          <span>Rapid Prototyping</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="summary">
+      <h2>Wat dit groeiproces laat zien</h2>
+
+      <p>
+        Vleugelslag groeide van een audioverhaal naar een interactief instrument.
+        Elke versie voegde een nieuwe laag toe: eerst verhaal, daarna structuur en daarna controle.
+      </p>
+
+      <p>
+        Dit laat zien hoe AI, UX, storytelling en systeemdenken samen kunnen helpen om een creatief idee concreet en ervaarbaar te maken.
+      </p>
+    </section>
+
+    <a href="index.html" class="back-link">← Terug naar portfolio</a>
+
+  </main>
+
+  <footer>
+    © Portfolio — creatieve exploratie rond AI, UX, audio en conceptontwikkeling.
+  </footer>
+
+</body>
+</html>
